@@ -7,6 +7,9 @@ typedef unsigned char U08;
 typedef short S16;
 typedef unsigned short U16;
 
+typedef int S32;
+typedef unsigned int U32;
+
 #define I2C_BASE_FUNC 
 #define SSD1306_BASE_FUNC
 

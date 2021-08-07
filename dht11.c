@@ -11,7 +11,7 @@ static inline void Delay54us(void);
 static inline void Delay80us(void);
 static inline void Delay30us(void);
 static inline void Delay10us(void);
-static inline U08 dht11_read_byte(void);
+/*U08 dht11_read_byte(void);*/
 
 U08 dht11_get_data(S08 *temp, U08 *hum){
     DHT_DDR &= ~(U08)(1<<DHT_BIT);
@@ -35,9 +35,9 @@ U08 dht11_get_data(S08 *temp, U08 *hum){
 	
 	//Data bytes
 	U08 DHT11_RH_integral = dht11_read_byte();
-	dht11_read_byte();
+	U08 tmp = dht11_read_byte();
 	U08 DHT11_T_integral  = dht11_read_byte();
-	dht11_read_byte();
+	tmp = dht11_read_byte();
 	U08 crc = dht11_read_byte();
 	
 
@@ -126,10 +126,10 @@ static inline void Delay10us(void){
 }
 
 
-static inline U08 dht11_read_byte(void){
+U08 dht11_read_byte(void){
     U08 dht11_data=0x00;
     U08 dht11_counter = 0;
-    
+        
     DHT_DDR &= ~(1<<DHT_BIT);
     for(U08 i=(U08)7; i>=0; i--){
         dht11_counter = 0;
@@ -148,5 +148,5 @@ static inline U08 dht11_read_byte(void){
         }
 
     }
-    return dht11_data;
+    return (U08)dht11_data;
 }

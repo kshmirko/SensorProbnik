@@ -43,9 +43,9 @@
  **/
 
 #ifdef SSD1306_BASE_FUNC
-void SSD1306_Init();
+void SSD1306_Init(void);
 void SSD1306_Command(U08 cmd, U08 dat);
-void SSD1306_Clear();
+void SSD1306_Clear(void);
 void SSD1306_GotoXY(U08 col, U08 row);
 void SSD1306_PutChar(U08 ch);
 #endif

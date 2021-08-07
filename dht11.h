@@ -14,5 +14,8 @@
 #include "config.h"
 
 U08 dht11_get_data(S08 *temp, U08 *hum);
+U08 dht11_read_byte(void);
+
+
 #endif
 
